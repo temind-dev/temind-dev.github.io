@@ -2,164 +2,100 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>CMC Group Security Awareness</title>
-
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
-}
-
-body{
-    background:linear-gradient(135deg,#005baa,#0078d4);
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-}
-
-.bg-animation{
-    position:fixed;
-    width:100%;
-    height:100%;
-    z-index:0;
-}
-
-.circle{
-    position:absolute;
-    border-radius:50%;
-    background:rgba(255,255,255,.08);
-    animation:float 12s infinite ease-in-out;
-}
-
-.circle:nth-child(1){
-    width:250px;
-    height:250px;
-    left:10%;
-    top:20%;
-}
-
-.circle:nth-child(2){
-    width:180px;
-    height:180px;
-    right:15%;
-    top:10%;
-}
-
-.circle:nth-child(3){
-    width:300px;
-    height:300px;
-    bottom:5%;
-    left:35%;
-}
-
-@keyframes float{
-    50%{transform:translateY(-30px);}
-}
-
-.card{
-    position:relative;
-    z-index:1;
-    width:700px;
-    background:#fff;
-    border-radius:20px;
-    padding:40px;
-    box-shadow:0 20px 50px rgba(0,0,0,.2);
-    animation:fadeIn 1s ease;
-}
-
-@keyframes fadeIn{
-    from{opacity:0;transform:translateY(20px);}
-    to{opacity:1;transform:translateY(0);}
-}
-
-.logo{
-    text-align:center;
-    margin-bottom:20px;
-}
-
-.logo h1{
-    color:#005baa;
-}
-
-.notice{
-    background:#e8f4ff;
-    border-left:5px solid #0078d4;
-    padding:15px;
-    margin:20px 0;
-    border-radius:8px;
-}
-
-.success{
-    text-align:center;
-    margin-top:20px;
-}
-
-.success h2{
-    color:#28a745;
-    margin-bottom:10px;
-}
-
-.btn{
-    display:inline-block;
-    margin-top:20px;
-    padding:12px 25px;
-    background:#0078d4;
-    color:#fff;
-    text-decoration:none;
-    border-radius:8px;
-    transition:.3s;
-}
-
-.btn:hover{
-    transform:translateY(-2px);
-}
+  *{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",sans-serif}
+  body{min-height:100vh;display:flex;justify-content:center;align-items:center;background:#cc0000;overflow:hidden}
+  .shape{position:fixed;border-radius:50%;background:rgba(255,255,255,.07);animation:drift 14s ease-in-out infinite;pointer-events:none}
+  .shape:nth-child(1){width:420px;height:420px;top:-100px;left:-100px}
+  .shape:nth-child(2){width:280px;height:280px;bottom:-60px;right:-60px;animation-delay:-5s}
+  .shape:nth-child(3){width:180px;height:180px;top:40%;right:8%;animation-delay:-9s}
+  .shape:nth-child(4){width:120px;height:120px;bottom:15%;left:8%;animation-delay:-3s}
+  @keyframes drift{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-28px) scale(1.04)}}
+  .card{position:relative;z-index:1;width:620px;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 28px 60px rgba(0,0,0,.28);animation:rise .8s cubic-bezier(.22,1,.36,1) both}
+  @keyframes rise{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+  .banner{background:#cc0000;padding:30px 36px 26px;display:flex;flex-direction:column;align-items:center;gap:14px}
+  .banner img{height:70px;display:block;object-fit:contain;filter:brightness(0) invert(1)}
+  .banner-tag{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.18);color:#fff;font-size:12px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;padding:5px 16px;border-radius:20px}
+  .shield-wrap{display:flex;justify-content:center;margin:-36px 0 0}
+  .shield{width:72px;height:72px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(204,0,0,.25);border:3px solid #fff}
+  .body{padding:16px 40px 36px}
+  .title{text-align:center;margin:14px 0 6px}
+  .title h2{color:#cc0000;font-size:22px;font-weight:700}
+  .title p{color:#888;font-size:14px;margin-top:4px;line-height:1.6}
+  .alert{background:#fff5f5;border:1.5px solid #f5c0c0;border-radius:12px;padding:16px 20px;margin:20px 0;display:flex;gap:14px;align-items:flex-start}
+  .alert-icon{min-width:36px;height:36px;background:#cc0000;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .alert-text strong{font-size:14px;color:#cc0000;display:block;margin-bottom:3px}
+  .alert-text span{font-size:13px;color:#555;line-height:1.5}
+  .tips-label{font-size:12px;font-weight:700;color:#aaa;letter-spacing:.8px;text-transform:uppercase;margin-bottom:12px}
+  .tips{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
+  .tip{background:#fafafa;border:1px solid #f0f0f0;border-radius:10px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px}
+  .tip-num{min-width:22px;height:22px;background:#cc0000;color:#fff;border-radius:50%;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .tip p{font-size:13px;color:#444;line-height:1.4}
+  .btn-wrap{text-align:center}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:#cc0000;color:#fff;padding:13px 36px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;border:none;transition:.2s}
+  .btn:hover{background:#aa0000;transform:translateY(-2px)}
+  .footer{text-align:center;margin-top:18px;font-size:11px;color:#bbb}
 </style>
 </head>
-
 <body>
-
-<div class="bg-animation">
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-</div>
+<div class="shape"></div>
+<div class="shape"></div>
+<div class="shape"></div>
+<div class="shape"></div>
 
 <div class="card">
+  <div class="banner">
+    <img src="data:image/webp;base64,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" alt="CMC Group">
+    <div class="banner-tag">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Security Awareness Programme
+    </div>
+  </div>
 
-    <div class="logo">
-        <h1>CMC Group</h1>
+  <div class="shield-wrap">
+    <div class="shield">
+      <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        <polyline points="9 12 11 14 15 10"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="title">
+      <h2>This Was a Phishing Simulation</h2>
+      <p>You clicked a link that was part of a controlled security awareness exercise.</p>
     </div>
 
-    <div class="success">
-        <h2>Security Awareness Exercise</h2>
-        <p>Thank you for participating.</p>
+    <div class="alert">
+      <div class="alert-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12 2L1 21h22L12 2zm0 3.5L20.5 19h-17L12 5.5zM11 10h2v5h-2zm0 6h2v2h-2z"/></svg>
+      </div>
+      <div class="alert-text">
+        <strong>Training Result: Link Clicked</strong>
+        <span>No real data was collected. This exercise helps identify areas where additional security training may be needed.</span>
+      </div>
     </div>
 
-    <div class="notice">
-        <strong>Training Result:</strong><br>
-        You clicked a link that was part of a cybersecurity awareness exercise.
+    <div class="tips-label">Before clicking any email link</div>
+    <div class="tips">
+      <div class="tip"><div class="tip-num">1</div><p>Verify the sender's email address carefully</p></div>
+      <div class="tip"><div class="tip-num">2</div><p>Hover over links to check the destination URL</p></div>
+      <div class="tip"><div class="tip-num">3</div><p>Be cautious of urgent or pressure-driven requests</p></div>
+      <div class="tip"><div class="tip-num">4</div><p>Report suspicious emails to IT via the helpdesk</p></div>
     </div>
 
-    <p>
-        Before clicking links in emails:
-    </p>
+    <div class="btn-wrap">
+      <button class="btn" onclick="this.innerHTML='&#10003; Got it, thank you!'">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        I Understand &amp; Will Be More Vigilant
+      </button>
+    </div>
 
-    <ul style="margin:15px 0 15px 20px;">
-        <li>Verify the sender.</li>
-        <li>Check the destination URL.</li>
-        <li>Be cautious of urgent requests.</li>
-        <li>Report suspicious emails to IT.</li>
-    </ul>
-
-    <center>
-        <a href="#" class="btn">I Understand</a>
-    </center>
-
+    <div class="footer">CMC Group Information Security &nbsp;|&nbsp; Internal Training Only</div>
+  </div>
 </div>
 
 </body>
